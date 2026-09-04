@@ -4,17 +4,14 @@ class Solution:
             return s
         
         idx, d = 0,1
-        rows = [[] for _ in range(numRows)]
+        rows = [""] * numRows
 
         for char in s:
-            rows[idx].append(char)
+            rows[idx] += char
             if idx == 0:
                 d = 1
             elif idx == numRows - 1:
                 d = -1
             idx += d
-        
-        for i in range(numRows):
-            rows[i] = ''.join(rows[i])
         
         return ''.join(rows)
