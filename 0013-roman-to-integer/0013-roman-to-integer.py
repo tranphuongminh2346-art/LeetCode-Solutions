@@ -4,7 +4,7 @@ class Solution:
         total = 0
         current_char = 0
 
-        for char in s[::-1]:
+        for char in reversed(s):
             if roman_map[char] < current_char:
                 total -= roman_map[char]
             else:
