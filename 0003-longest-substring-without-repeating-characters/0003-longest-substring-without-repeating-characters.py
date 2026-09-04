@@ -1,12 +1,22 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        longest = ""
-        length = 0
-        for i in range(len(s)):
-            for j in range(i,len(s)):
-                if s[j] in s[i:j]:
-                    break
-                current_len = j - i + 1
-                if current_len > length:
-                    length = current_len
-        return length
+        char_map = {}
+        max_length = 0
+        left = 0
+
+        for right in range(len(s)):
+            current_char = s[right]
+
+            if current_char in char_map and char_map[current_char] >= left:
+                left = char_map[current_char] + 1
+            
+            char_map[current_char] = right
+
+            current_length = right - left + 1
+            if current_length > max_length:
+                max_length = current_length
+
+        return max_length
+
+        
+        return max_length
