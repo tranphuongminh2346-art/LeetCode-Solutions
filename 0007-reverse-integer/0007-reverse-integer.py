@@ -1,8 +1,6 @@
 class Solution:
     def reverse(self, x: int) -> int:
-        scale = 1
-        if x < 0:
-            scale = -1
+        scale = 1 if x >= 0 else -1
         x = abs(x)
         reversed_x = 0
         while x > 0:
